@@ -11,131 +11,142 @@
 
 </head>
 <body>
-<div class="vh-100">
-    <nav class="navbar navbar-light bg-light" style="height: 20%">
-        <div class="container-fluid">
-            <img src="https://cdn.azvd.asia/images/furama/logo-m.png" alt="" width="200" height="100"
-                 class="d-inline-block align-text-top">
-
-        </div>
-    </nav>
-    <nav class="navbar navbar-expand-lg navbar-light bg-secondary" style="height: 10%">
-        <div class="container-fluid" style="margin-left: 40px">
-            <a class="navbar-brand" href="../home.html">Home</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1"
-                           role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Employee
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
-                            <li><a class="dropdown-item">List Employee</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-                           role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Customer
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" >List Customer</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a style="font-weight: bold" class="nav-link dropdown-toggle" href="#" id="navbarDropdown2"
-                           role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Facility
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
-                            <li><a class="dropdown-item" href="list.html">List Facility</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4" role="button"
-                           data-bs-toggle="dropdown" aria-expanded="false">
-                            Contract
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown4">
-                            <li><a class="dropdown-item">List Contract</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button style="color: black;background: green" class="btn btn-outline-success" type="submit">
-                        Search
-                    </button>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <div style="height: 70%">
-        <div align="center">
-            <h1>Create Facility</h1>
-            <a role="button" class="btn btn-primary" href="list.html">Back list</a>
-        </div>
-            <input type="hidden" >
-            <div class="mb-3">
-                <label>Facility Type: </label>
-                <select id="change" onchange="facility()">
-                    <option value="" selected>Select Facility Type</option>
-                    <option value="1">Villa</option>
-                    <option value="2">House</option>
-                    <option value="3">Room</option>
-                </select>
-            </div>
-            <div class="mb-3">
-                <label>Name:</label>
-                <input class="form-control" type="text">
-            </div>
-            <div class="mb-3">
-                <label>Area:</label>
-                <input class="form-control" type="number">
-            </div>
-            <div class="mb-3">
-                <label>Cost:</label>
-                <input type="number" class="form-control" }>
-            </div>
-            <div class="mb-3">
-                <label>Max People:</label>
-                <input type="number" class="form-control">
-            </div>
-            <div class="mb-3">
-                <label>Rent Type:</label>
-                <select th:field="${facilityDto.rentType}">
-                    <option th:each="rt : ${rentTypes}" th:value="${rt.id}"
-                            th:text="${rt.name}"></option>
-                </select>
-            </div>
-            <div id="sr" class="mb-3">
-                <label>Standard Room:</label>
-                <input type="text" class="form-control">
-            </div>
-            <div id="doc" class="mb-3">
-                <label>Description Other Convenience:</label>
-                <input type="text" class="form-control">
-            </div>
-            <div id="pa" class="mb-3">
-                <label>Pool Area: </label>
-                <input type="number" class="form-control">
-            </div>
-            <div id="nof" class="mb-3">
-                <label>Number Of Floors: </label>
-                <input class="form-control" type="number">
-            </div>
-            <div id="ff" class="mb-3">
-                <label>Facility Free: </label>
-                <input class="form-control" type="text">
-            </div>
-            <button class="btn btn-primary" type="submit">Create</button>
+<nav class="navbar navbar-light bg-light"
+     style="height: 142px;background-image: url('https://vcdn1-dulich.vnecdn.net/2021/08/29/Puluong-retreat-Vietnam-overview1-1630216995.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=fYOgHUxFvlS5heOP4hCM_Q')">
+    <div class="container-fluid">
+        <h1 style="text-align: center">FURAMA</h1>
     </div>
+</nav>
+<nav class="navbar navbar-expand-lg navbar-light bg-success" style="height: 72px">
+    <div class="container-fluid" style="margin-left: 40px">
+        <a class="navbar-brand" href="../home.html">Home</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1"
+                       role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Employee
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                        <li><a class="dropdown-item">List Employee</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+                       role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Customer
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item">List Customer</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a style="font-weight: bold" class="nav-link dropdown-toggle" href="#" id="navbarDropdown2"
+                       role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Facility
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                        <li><a class="dropdown-item" href="list.html">List Facility</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        Contract
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown4">
+                        <li><a class="dropdown-item">List Contract</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button style="color: black;background: green" class="btn btn-outline-success" type="submit">
+                    Search
+                </button>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div style="height: 70%">
+    <div align="center">
+        <h1>Create Facility</h1>
+        <a role="button" class="btn btn-primary" href="list.html">Back list</a>
+    </div>
+    <input type="hidden">
+    <div class="mb-3">
+        <label>Facility Type: </label>
+        <select id="change" onchange="facility()">
+            <option value="" selected>Select Facility Type</option>
+            <option value="1">Villa</option>
+            <option value="2">House</option>
+            <option value="3">Room</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label>Name:</label>
+        <input class="form-control" type="text">
+    </div>
+    <div class="mb-3">
+        <label>Area:</label>
+        <input class="form-control" type="number">
+    </div>
+    <div class="mb-3">
+        <label>Cost:</label>
+        <input type="number" class="form-control" }>
+    </div>
+    <div class="mb-3">
+        <label>Max People:</label>
+        <input type="number" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label>Rent Type:</label>
+        <select>
+            <option value="1">Year</option>
+            <option value="2">Month</option>
+            <option value="3">Day</option>
+            <option value="4">Hour</option>
+        </select>
+    </div>
+    <div id="sr" class="mb-3">
+        <label>Standard Room:</label>
+        <input type="text" class="form-control">
+    </div>
+    <div id="doc" class="mb-3">
+        <label>Description Other Convenience:</label>
+        <input type="text" class="form-control">
+    </div>
+    <div id="pa" class="mb-3">
+        <label>Pool Area: </label>
+        <input type="number" class="form-control">
+    </div>
+    <div id="nof" class="mb-3">
+        <label>Number Of Floors: </label>
+        <input class="form-control" type="number">
+    </div>
+    <div id="ff" class="mb-3">
+        <label>Facility Free: </label>
+        <input class="form-control" type="text">
+    </div>
+    <button class="btn btn-primary" type="submit">Create</button>
 </div>
+
+<footer class="py-3 my-4">
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+    </ul>
+    <p class="text-center text-muted">© 2021 Company, Inc</p>
+</footer>
+
 </body>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
