@@ -1,0 +1,10 @@
+<h2>Font size editor</h2>
+
+<div>
+  <label>Enter font size (px):</label>
+  <input #element (change)="chaneFontSizeValue(element.value)" type="range" min="9" max="72" value="18">
+</div>
+
+<p [style.fontSize.px]="fontSize" class="output">
+  This is a paragraph.
+</p>
