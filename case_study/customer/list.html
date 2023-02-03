@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
-    <title>List Facility</title>
+    <title>List Customer</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
             crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
 </head>
 <body>
 <div class="vh-100">
@@ -18,7 +20,7 @@
     </nav>
     <nav class="navbar navbar-expand-lg navbar-light bg-success" style="height: 10%">
         <div class="container-fluid" style="margin-left: 40px">
-            <a href="../home.html" class="navbar-brand">Home</a>
+            <a class="navbar-brand" href="../home.html">Home</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -36,21 +38,21 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+                        <a style="font-weight: bold" class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Customer
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a href="../customer/list.html" class="dropdown-item">List Customer</a></li>
+                            <li><a class="dropdown-item" href="list.html">List Customer</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a style="font-weight: bold" class="nav-link dropdown-toggle" href="#" id="navbarDropdown2"
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2"
                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Facility
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
-                            <li><a class="dropdown-item">List Facility</a></li>
+                            <li><a class="dropdown-item" href="../facility/list.html">List Facility</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -69,61 +71,65 @@
                            aria-label="Search Name">
                     <select>
                         <option value="" selected>
-                            Choose Facility Type
+                            Choose Customer Type
                         </option>
-                        <option>Villa</option>
-                        <option>House</option>
-                        <option>Room</option>
+                        <option>Diamond</option>
+                        <option>Platinium</option>
+                        <option>Gold</option>
+                        <option>Silver</option>
+                        <option>Member</option>
                     </select>
-                    <button class="btn btn-primary" type="submit">Search</button>
+                    <button class="btn btn-primary" type="submit"> Search
+                    </button>
                 </form>
+
             </div>
         </div>
     </nav>
-    <div class="row" style="height: 70%">
-        <div align="center" style="margin-bottom: 20px">
-            <h1>List Facility</h1>
-            <a href="create.html" role="button" class="btn btn-primary">Create Facility</a>
+    <div style="    height: 70%">
+        <div align="center">
+            <h1>List Customer</h1>
+            <a role="button" class="btn btn-primary" >
+                Create Customer
+            </a>
         </div>
-        <div class="card" style="width: 18rem;margin-left: 70px">
-            <img src="https://salahotelgroup.com/wp-content/uploads/2022/04/Sala-Ocean-Suite-1-1-scaled.jpg" height="195" class="card-img-top"
-                 alt="...">
-            <div class="card-body">
-                <h5 class="card-title">OCEAN SUITE</h5>
-                <p class="card-text">Room size: 85.8 m<sup>2</sup></p>
-                <a href="edit.html" class="btn btn-primary">Edit</a>
-            </div>
-        </div>
-        <div class="card" style="width: 18rem;margin-left: 70px">
-            <img src="https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Lagoon-Superior-twin-bed-M-1047x563.jpg" height="195" class="card-img-top"
-                 alt="...">
-            <div class="card-body">
-                <h5 class="card-title">LAGOON SUPERIOR</h5>
-                <p class="card-text">Room size: 40.1 m<sup>2</sup></p>
-                <a href="edit.html" class="btn btn-primary">Edit</a>
-            </div>
-        </div>
-        <div class="card" style="width: 18rem;margin-left: 70px">
-            <img src="https://s3-ap-southeast-1.amazonaws.com/solaire-webapp-prod-revamp-s3bucket-1w52mgr93ka5a/uploads/media/2022%20Forbes/Presidential-Suite-1185x667.jpg"
-                 style="height: 195px" class="card-img-top"
-                 alt="...">
-            <div class="card-body">
-                <h5 class="card-title">PRESIDENTIAL SUITE</h5>
-                <p class="card-text">Room size: 130 m<sup>2</sup></p>
-                <a href="edit.html" class="btn btn-primary">Edit</a>
-            </div>
-        </div>
-        <div class="card" style="width: 18rem;margin-left: 70px">
-            <img src="https://cdn.cet.edu.vn/wp-content/uploads/2019/02/villa-khong-gian-sang-trong.jpg"
-                 style="height: 195px" class="card-img-top"
-                 alt="...">
-            <div class="card-body">
-                <h5 class="card-title">POOL VILLAS</h5>
-                <p class="card-text">Room size: 320 m<sup>2</sup></p>
-                <a href="edit.html" class="btn btn-primary">Edit</a>
-            </div>
-        </div>
-
+        <table class="table table-striped table-bordered" style="width: 100%;margin-top: 10px">
+            <thead>
+            <tr>
+                <th scope="col">STT</th>
+                <th scope="col">Name</th>
+                <th scope="col">Date of birth</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Id Card</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">Email</th>
+                <th scope="col">Address</th>
+                <th scope="col">Customer Type</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th>1</th>
+                <td>Nguyễn Thị Hào</td>
+                <td>1970-11-07</td>
+                <td>Female</td>
+                <td>643431213</td>
+                <td>0945423362</td>
+                <td>thihao07@gmail.com</td>
+                <td>23 Nguyễn Hoàng, Đà Nẵng</td>
+                <td>Member</td>
+                <td><a href="edit.html" role="button" class="btn btn-primary"><i
+                        class="fa-solid fa-pen-to-square"></i> Edit</a>
+                </td>
+                <td>
+                    <a role="button" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
+                            class="fa-solid fa-delete-left"></i> Delete</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
         <nav aria-label="Page navigation example" style="margin-top: 20px;margin-left: 20px">
             <ul class="pagination">
                 <li class="page-item"><a class="page-link" href="#">Previous</a></li>
@@ -133,7 +139,9 @@
                 <li class="page-item"><a class="page-link" href="#">Next</a></li>
             </ul>
         </nav>
+
     </div>
+
 </div>
 <footer class="py-3 my-4">
     <ul class="nav justify-content-center border-bottom pb-3 mb-3">
@@ -146,5 +154,11 @@
     <p class="text-center text-muted">© 2021 Company, Inc</p>
 </footer>
 </body>
+<script>
+    function infoDelete(id, name) {
+        document.getElementById("id").value = id;
+        document.getElementById("deleteName").innerText = name;
+    }
+</script>
 </html>
 </html>
