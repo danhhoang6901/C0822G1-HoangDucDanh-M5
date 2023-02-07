@@ -1,0 +1,137 @@
+<app-header></app-header>
+<app-navbar></app-navbar>
+<div style=" height: 60%">
+  <div align="center">
+    <h1>List Contract</h1>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addContract">
+      Create Contract
+    </button>
+    <div class="modal fade" id="addContract" tabindex="-1" aria-labelledby="exampleModalLabel3"
+         aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel3">Create Contract</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <label style="font-weight: bold">Start Date: </label>
+            <input class="form-control" type="date" id="dateStart">
+            <label style="font-weight: bold">End Date: </label>
+            <input class="form-control" type="date" id="dateEnd">
+            <label style="font-weight: bold">Name Facility: </label>
+            <select class="form-control" id="name">
+              <option value="">--Choose--</option>
+              <option></option>
+            </select>
+            <label style="font-weight: bold">Name Customer: </label>
+            <select class="form-control" id="nameCus">
+              <option value="">--Choose--</option>
+              <option></option>
+            </select>
+            <label style="font-weight: bold">Deposit: </label>
+            <input class="form-control" type="number">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button id="save" type="submit" class="btn btn-primary">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <table id="tableCustomer" class="table table-striped table-bordered" style="width: 100%;margin-top: 10px">
+    <thead>
+    <tr>
+      <th scope="col">STT</th>
+      <th scope="col">Facility</th>
+      <th scope="col">Customer</th>
+      <th scope="col">Start Date</th>
+      <th scope="col">End Date</th>
+      <th scope="col">Deposit</th>
+      <th scope="col">Total Money</th>
+      <th scope="col">Additional Services</th>
+    </tr>
+    </thead>
+    <tbody id="contractBody">
+    <tr>
+      <th>1</th>
+      <td>Room Twin 01</td>
+      <td>Nguyễn Thị Hào</td>
+      <td>2020-12-08</td>
+      <td>2020-12-08</td>
+      <td>0</td>
+      <td>10000000</td>
+      <td>
+        <button onclick="idContractDetail(${contract.getId()})" type="button" class="btn btn-primary"
+                data-bs-toggle="modal" data-bs-target="#addContractDetail">
+          +
+        </button>
+        <!--                    <button  type="button" class="btn btn-primary" data-bs-toggle="modal"-->
+        <!--                            data-bs-target="#attachFacility">-->
+        <!--                        List of included services-->
+        <!--                    </button>-->
+        <button type="button"
+                class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          List of included services
+        </button>
+
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <nav aria-label="Page navigation example" style="margin-top: 20px;margin-left: 20px">
+    <ul class="pagination">
+      <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item"><a class="page-link" href="#">Next</a></li>
+    </ul>
+  </nav>
+  <!--        Thêm mới dịch vụ đi kèm-->
+  <div class="modal fade" id="addContractDetail" tabindex="-1" aria-labelledby="exampleModalLabel1"
+       aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel1">Create Contract Detail</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <input type="hidden">
+          <label style="font-weight: bold">Name Contract Detail: </label>
+          <select class="form-control">
+            <option value="">--Choose--</option>
+            <option></option>
+          </select>
+          <label style="font-weight: bold">Quantity: </label>
+          <input class="form-control" type="number" id="quantity">
+          <input type="hidden" id="idInput">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--        Hiện thị dịch vụ đi kèm-->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Attach Facility</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <table id="showAttach"></table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
