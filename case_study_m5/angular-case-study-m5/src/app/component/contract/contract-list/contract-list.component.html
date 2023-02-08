@@ -54,14 +54,14 @@
     </tr>
     </thead>
     <tbody id="contractBody">
-    <tr>
-      <th>1</th>
-      <td>Room Twin 01</td>
-      <td>Nguyễn Thị Hào</td>
-      <td>2020-12-08</td>
-      <td>2020-12-08</td>
-      <td>0</td>
-      <td>10000000</td>
+    <tr *ngFor="let ctr of contractList;index as i">
+      <th>{{i + 1}}</th>
+      <td>{{ctr.facility.name}}</td>
+      <td>{{ctr.customer.name}}</td>
+      <td>{{ctr.startDate}}</td>
+      <td>{{ctr.endDate}}</td>
+      <td>{{ctr.deposit}}</td>
+      <td></td>
       <td>
         <button onclick="idContractDetail(${contract.getId()})" type="button" class="btn btn-primary"
                 data-bs-toggle="modal" data-bs-target="#addContractDetail">

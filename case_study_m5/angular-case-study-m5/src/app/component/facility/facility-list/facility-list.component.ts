@@ -18,8 +18,14 @@ export class FacilityListComponent implements OnInit {
       descriptionOtherConvenience: "Có hồ bơi",
       poolArea: 500,
       numberOfFloors: 4,
-      facilityType: "Villa",
-      rentType: "Day"
+      facilityType: {
+        id: 1,
+        name: "Villa"
+      },
+      rentType: {
+        id: 3,
+        name: "Day"
+      }
     },
     {
       id: 2,
@@ -30,8 +36,14 @@ export class FacilityListComponent implements OnInit {
       standardRoom: "vip",
       descriptionOtherConvenience: "Có thêm bếp nướng",
       numberOfFloors: 3,
-      facilityType: "House",
-      rentType: "Month"
+      facilityType: {
+        id: 2,
+        name: "House"
+      },
+      rentType: {
+        id: 2,
+        name: "Month"
+      }
     }
   ];
 
