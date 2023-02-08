@@ -1,0 +1,66 @@
+<form [formGroup]="reactiveForm" (ngSubmit)="register()">
+  <div class="mb-3">
+    <label>Email: </label>
+
+    <input placeholder="Ex: abc123@gmail.com" formControlName="email" class="form-control">
+    <p style="color:red"
+       *ngIf="reactiveForm.controls.email.hasError('required') && reactiveForm.controls.email.touched"> Email không được
+      để trống</p>
+    <p style="color:red"
+       *ngIf="reactiveForm.controls.email.hasError('pattern') && reactiveForm.controls.email.touched"> Email chưa đúng
+      định dạng</p>
+  </div>
+  <div class="mb-3">
+    <label>Password: </label>
+    <input formControlName="password" type="password" class="form-control">
+    <p style="color:red"
+       *ngIf="reactiveForm.controls.password.hasError('required') && reactiveForm.controls.password.touched"> Mật khẩu
+      không được bỏ trống</p><p style="color:red"
+       *ngIf="reactiveForm.controls.password.hasError('minLength') && reactiveForm.controls.password.touched"> Mật khẩu
+      không được bỏ trống</p>
+  </div>
+  <div class="mb-3">
+    <label>Confirm Password: </label>
+    <input type="password" class="form-control">
+  </div>
+  <div class="mb-3">
+    <label>Country: </label><span style="color:red"
+                                  *ngIf="reactiveForm.controls.country.hasError('required') && reactiveForm.controls.country.touched"> Quốc gia không
+    được
+    để trống</span><br>
+    <select formControlName="country">
+      <option *ngFor="let ct of country" [ngValue]="ct.name">{{ct.name}}</option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <label>Age: </label>
+    <input type="number" formControlName="age" class="form-control">
+    <p style="color:red"
+       *ngIf="reactiveForm.controls.age.hasError('required') && reactiveForm.controls.age.touched"> Tuổi không được
+      để trống</p>
+    <p style="color:red"
+       *ngIf="reactiveForm.controls.age.hasError('min') && reactiveForm.controls.age.touched"> Tuổi phải lớn hơn
+      18</p>
+  </div>
+  <div class="mb-3">
+    <label>Gender: </label><br>
+    <input formControlName="gender" value="1" type="radio" name="gender">Male<br>
+    <input formControlName="gender" value="2" type="radio" name="gender">Female
+    <p style="color:red"
+       *ngIf="reactiveForm.controls.gender.hasError('required') && reactiveForm.controls.gender.touched">Giới tính không
+      đươc để trống</p>
+  </div>
+  <div class="mb-3">
+    <label>Phone: </label>
+    <input placeholder="Ex: +84xxxxxxxxxx " formControlName="phone" class="form-control">
+    <p style="color:red"
+       *ngIf="reactiveForm.controls.phone.hasError('required') && reactiveForm.controls.phone.touched">Số điện thoại
+      không đươc để trống</p>
+    <p style="color:red"
+       *ngIf="reactiveForm.controls.phone.hasError('pattern') && reactiveForm.controls.phone.touched">Số điện thoại chưa
+      đúng định dạng</p>
+
+  </div>
+  <input type="submit" value="Register">
+  <p>{{msg}}</p>
+</form>
