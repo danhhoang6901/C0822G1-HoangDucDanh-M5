@@ -1,0 +1,21 @@
+<div align="center">
+  <h1>Từ điển</h1>
+  <button class="btn btn-primary" routerLink="">Danh sách sản phẩm</button>
+</div>
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">STT</th>
+    <th scope="col">Tiếng Việt</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let dn of dictionary;index as i ">
+    <th scope="row">{{i + 1}}</th>
+    <td>{{dn.english}}</td>
+    <td>
+      <button class="btn btn-primary" [routerLink]="['/info',dn.id]">Chi tiết</button>
+    </td>
+  </tr>
+  </tbody>
+</table>

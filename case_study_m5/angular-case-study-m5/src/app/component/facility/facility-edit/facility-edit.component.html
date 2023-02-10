@@ -3,55 +3,58 @@
 <div style="height: 70%">
   <div align="center">
     <h1>Edit Facility</h1>
-    <a role="button" class="btn btn-primary" href="list.html">Back list</a>
+    <a routerLink="/facility/list" role="button" class="btn btn-primary">Back list</a>
+    <p style="color: red">{{msg}}</p>
   </div>
-  <input type="hidden">
-  <input type="hidden">
-  <div class="mb-3">
-    <label>Name:</label>
-    <input class="form-control" type="text" value="OCEAN SUITE">
-  </div>
-  <div class="mb-3">
-    <label>Area:</label>
-    <input class="form-control" type="number" value="85.8">
-  </div>
-  <div class="mb-3">
-    <label>Cost:</label>
-    <input type="number" class="form-control" value="10000000">
-  </div>
-  <div class="mb-3">
-    <label>Max People:</label>
-    <input type="number" class="form-control" value="5">
-  </div>
-  <div class="mb-3">
-    <label>Rent Type:</label>
-    <select>
-      <option value="1">Year</option>
-      <option value="2">Month</option>
-      <option value="3">Day</option>
-      <option value="4">Hour</option>
-    </select>
-  </div>
-  <div class="mb-3">
-    <label>Standard Room:</label>
-    <input type="text" class="form-control" value="Đẹp">
-  </div>
-  <div class="mb-3">
-    <label>Description Other Convenience:</label>
-    <input type="text" class="form-control" value="abcabc">
-  </div>
-  <div class="mb-3">
-    <label>Pool Area: </label>
-    <input type="number" class="form-control" value="30">
-  </div>
-  <div class="mb-3">
-    <label>Number Of Floors: </label>
-    <input class="form-control" type="number" value="2">
-  </div>
-  <div class="mb-3">
-    <label>Facility Free: </label>
-    <input class="form-control" type="text" value="Karaoke">
-  </div>
-  <button class="btn btn-primary" type="submit">Edit</button>
+  <form [formGroup]="facilityForm" (ngSubmit)="updateFacility(id)">
+    <div class="mb-3">
+      <input class="form-control" type="hidden" formControlName="id">
+    </div><div class="mb-3">
+      <label>Name:</label>
+      <input class="form-control" type="text" formControlName="name">
+    </div>
+    <div class="mb-3">
+      <label>Area:</label>
+      <input class="form-control" type="number" formControlName="area">
+    </div>
+    <div class="mb-3">
+      <label>Cost:</label>
+      <input type="number" class="form-control" formControlName="cost">
+    </div>
+    <div class="mb-3">
+      <label>Max People:</label>
+      <input type="number" class="form-control" formControlName="maxPeople">
+    </div>
+    <div class="mb-3">
+      <label>Rent Type:</label>
+      <select formControlName="rentType">
+        <option value="1"></option>
+        <option value="2">Month</option>
+        <option value="3">Day</option>
+        <option value="4">Hour</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label>Standard Room:</label>
+      <input type="text" class="form-control" formControlName="standardRoom">
+    </div>
+    <div class="mb-3">
+      <label>Description Other Convenience:</label>
+      <input type="text" class="form-control" formControlName="descriptionOtherConvenience">
+    </div>
+    <div class="mb-3">
+      <label>Pool Area: </label>
+      <input type="number" class="form-control" formControlName="poolArea">
+    </div>
+    <div class="mb-3">
+      <label>Number Of Floors: </label>
+      <input class="form-control" type="number" formControlName="numberOfFloors">
+    </div>
+    <div class="mb-3">
+      <label>Facility Free: </label>
+      <input class="form-control" type="text" formControlName="facilityFree">
+    </div>
+    <button class="btn btn-primary" type="submit">Edit</button>
+  </form>
 </div>
 <app-footer></app-footer>

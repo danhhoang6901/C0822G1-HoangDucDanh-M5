@@ -1,0 +1,34 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Iphone 12",
+      "price": 50000000,
+      "description": "Đẹp",
+      "category": {
+        "id": 1,
+        "name": "Abc"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Samsung 12",
+      "price": 70000000,
+      "description": "Xịn",
+      "category": {
+        "id": 2,
+        "name": "Jkl"
+      }
+    }
+  ],
+  "category": [
+    {
+      "id": 1,
+      "name": "Abc"
+    },
+    {
+      "id": 2,
+      "name": "Jkl"
+    }
+  ]
+}

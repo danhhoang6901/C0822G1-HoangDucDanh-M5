@@ -3,16 +3,14 @@
 <div style="height: 70%">
   <div align="center">
     <h1>Create Facility</h1>
-    <a role="button" class="btn btn-primary" >Back list</a>
+    <a routerLink="/facility/list" role="button" class="btn btn-primary">Back list</a>
   </div>
   <input type="hidden">
   <div class="mb-3">
     <label>Facility Type: </label>
     <select id="change" onchange="facility()">
       <option value="" selected>Select Facility Type</option>
-      <option value="1">Villa</option>
-      <option value="2">House</option>
-      <option value="3">Room</option>
+      <option *ngFor="let ft of facilityTypeList" [value]="ft.id">{{ft.name}}</option>
     </select>
   </div>
   <div class="mb-3">
@@ -25,7 +23,7 @@
   </div>
   <div class="mb-3">
     <label>Cost:</label>
-    <input type="number" class="form-control" >
+    <input type="number" class="form-control">
   </div>
   <div class="mb-3">
     <label>Max People:</label>
@@ -34,10 +32,7 @@
   <div class="mb-3">
     <label>Rent Type:</label>
     <select>
-      <option value="1">Year</option>
-      <option value="2">Month</option>
-      <option value="3">Day</option>
-      <option value="4">Hour</option>
+      <option *ngFor="let rt of rentTypeList" [value]="rt.id">{{rt.name}}</option>
     </select>
   </div>
   <div id="sr" class="mb-3">
