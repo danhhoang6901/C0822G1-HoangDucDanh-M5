@@ -5,7 +5,7 @@ import {FacilityType} from "../../../model/facility-type";
 import {FacilityTypeService} from "../../../service/facility-type.service";
 import {FacilityService} from "../../../service/facility.service";
 import {Router} from "@angular/router";
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-facility-create',
@@ -19,18 +19,17 @@ export class FacilityCreateComponent implements OnInit {
 
   constructor(private rentTypeService: RentTypeService, private facilityTypeService: FacilityTypeService, private facilityService: FacilityService, private router: Router) {
     this.facilityForm = new FormGroup({
-      id: new FormControl(),
-      name: new FormControl(),
-      area: new FormControl(),
-      cost: new FormControl(),
-      maxPeople: new FormControl(),
-      standardRoom: new FormControl(),
-      descriptionOtherConvenience: new FormControl(),
-      poolArea: new FormControl(),
-      numberOfFloors: new FormControl(),
-      facilityFree: new FormControl(),
-      facilityType: new FormControl(),
-      rentType: new FormControl()
+      name: new FormControl("", [Validators.required, Validators.pattern("([a-zA-Z',.-]+( [a-zA-Z',.-]+)*){2,30}")]),
+      area: new FormControl("", [Validators.required]),
+      cost: new FormControl("", [Validators.required]),
+      maxPeople: new FormControl("", [Validators.required]),
+      standardRoom: new FormControl("", [Validators.required]),
+      descriptionOtherConvenience: new FormControl("", [Validators.required]),
+      poolArea: new FormControl("", [Validators.required, Validators.min(0)]),
+      numberOfFloors: new FormControl("", [Validators.required, Validators.min(0)]),
+      facilityFree: new FormControl("", [Validators.required]),
+      facilityType: new FormControl("", [Validators.required]),
+      rentType: new FormControl("", [Validators.required])
     });
     this.rentTypeService.getAll().subscribe(next => {
       this.rentTypeList = next
@@ -44,12 +43,12 @@ export class FacilityCreateComponent implements OnInit {
   }
 
   createFacility() {
-    const facility = this.facilityForm.value;
-    this.facilityService.createFacility(facility).subscribe(next => {
-      alert("Successfully added new");
-      this.router.navigateByUrl("/facility/list")
-    })
+    if (this.facilityForm.valid) {
+      const facility = this.facilityForm.value;
+      this.facilityService.createFacility(facility).subscribe(next => {
+        alert("Successfully added new");
+        this.router.navigateByUrl("/facility/list")
+      })
+    }
   }
-
-
 }

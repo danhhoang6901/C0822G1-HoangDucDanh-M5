@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {FacilityService} from "../../../service/facility.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {FacilityType} from "../../../model/facility-type";
@@ -19,6 +19,7 @@ export class FacilityEditComponent implements OnInit {
   facilityType: FacilityType[] = [];
   rentType: RentType[] = [];
   facility: Facility[] = [];
+
   constructor(private facilityService: FacilityService, private activatedRoute: ActivatedRoute, private facilityTypeService: FacilityTypeService,
               private rentTypeService: RentTypeService, private router: Router) {
     this.activatedRoute.paramMap.subscribe(data => {
@@ -38,30 +39,33 @@ export class FacilityEditComponent implements OnInit {
 
   getFacility(id: number) {
     return this.facilityService.findById(id).subscribe(next => {
-      this.facilityForm = new FormGroup({
-        id: new FormControl(next.id),
-        name: new FormControl(next.name),
-        area: new FormControl(next.area),
-        cost: new FormControl(next.cost),
-        maxPeople: new FormControl(next.maxPeople),
-        standardRoom: new FormControl(next.standardRoom),
-        descriptionOtherConvenience: new FormControl(next.descriptionOtherConvenience),
-        poolArea: new FormControl(next.poolArea),
-        numberOfFloors: new FormControl(next.numberOfFloors),
-        facilityFree: new FormControl(next.facilityFree),
-        facilityType: new FormControl(next.facilityType),
-        rentType: new FormControl(next.rentType)
-      })
-    });
+        this.facilityForm = new FormGroup({
+          id: new FormControl(next.id),
+          name: new FormControl(next.name, [Validators.required, Validators.pattern("([a-zA-Z',.-]+( [a-zA-Z',.-]+)*){2,30}")]),
+          area: new FormControl(next.area, [Validators.required]),
+          cost: new FormControl(next.cost, [Validators.required]),
+          maxPeople: new FormControl(next.maxPeople, [Validators.required]),
+          standardRoom: new FormControl(next.standardRoom, [Validators.required]),
+          descriptionOtherConvenience: new FormControl(next.descriptionOtherConvenience, [Validators.required]),
+          poolArea: new FormControl(next.poolArea, [Validators.required, Validators.min(0)]),
+          numberOfFloors: new FormControl(next.numberOfFloors, [Validators.required, Validators.min(0)]),
+          facilityFree: new FormControl(next.facilityFree, [Validators.required]),
+          facilityType: new FormControl(next.facilityType, [Validators.required]),
+          rentType: new FormControl(next.rentType, [Validators.required])
+        })
+      }
+    );
   }
 
   updateFacility(id: number) {
-    const facility = this.facilityForm.value;
-    this.facilityService.updateFacility(id, facility).subscribe(next => {
-      this.facility = next
-      alert("Update successful");
-      this.router.navigateByUrl("/facility/list");
-    });
+    if (this.facilityForm.valid) {
+      const facility = this.facilityForm.value;
+      this.facilityService.updateFacility(id, facility).subscribe(next => {
+        this.facility = next
+        alert("Update successful");
+        this.router.navigateByUrl("/facility/list");
+      });
+    }
   }
 
   compareFun(item1, item2) {

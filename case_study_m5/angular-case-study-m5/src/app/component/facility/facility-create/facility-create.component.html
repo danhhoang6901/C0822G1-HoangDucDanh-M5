@@ -68,48 +68,105 @@
       <select formControlName="facilityType" id="change" onchange="facility()">
         <option *ngFor="let ft of facilityTypeList" [ngValue]="ft">{{ft.name}}</option>
       </select>
+      <p style="color: red"
+         *ngIf="facilityForm.controls.facilityType.hasError('required') && facilityForm.controls.facilityType.touched">*
+        Can't be left
+        blank</p>
     </div>
     <div class="mb-3">
-      <label>Name:</label>
+      <label>Name Service:</label>
       <input formControlName="name" class="form-control" type="text">
+      <p style="color: red"
+         *ngIf="facilityForm.controls.name.hasError('required') && facilityForm.controls.name.touched">*
+        Can't be left
+        blank</p>
+      <p style="color: red"
+         *ngIf="facilityForm.controls.name.hasError('pattern')">* Service name cannot contain numbers
+      </p>
     </div>
     <div class="mb-3">
       <label>Area:</label>
       <input formControlName="area" class="form-control" type="number">
+      <p style="color: red"
+         *ngIf="facilityForm.controls.area.hasError('required') && facilityForm.controls.area.touched">*
+        Can't be left
+        blank</p>
     </div>
     <div class="mb-3">
       <label>Cost:</label>
       <input formControlName="cost" type="number" class="form-control">
+      <p style="color: red"
+         *ngIf="facilityForm.controls.cost.hasError('required') && facilityForm.controls.cost.touched">*
+        Can't be left
+        blank</p>
     </div>
     <div class="mb-3">
       <label>Max People:</label>
       <input formControlName="maxPeople" type="number" class="form-control">
+      <p style="color: red"
+         *ngIf="facilityForm.controls.maxPeople.hasError('required') && facilityForm.controls.maxPeople.touched">*
+        Can't be left
+        blank</p>
     </div>
     <div class="mb-3">
       <label>Rent Type:</label>
       <select formControlName="rentType">
         <option *ngFor="let rt of rentTypeList" [ngValue]="rt">{{rt.name}}</option>
       </select>
+      <p style="color: red"
+         *ngIf="facilityForm.controls.rentType.hasError('required') && facilityForm.controls.rentType.touched">*
+        Can't be left
+        blank</p>
     </div>
     <div id="sr" class="mb-3">
       <label>Standard Room:</label>
       <input formControlName="standardRoom" type="text" class="form-control">
+      <p style="color: red"
+         *ngIf="facilityForm.controls.standardRoom.hasError('required') && facilityForm.controls.standardRoom.touched">*
+        Can't be left
+        blank</p>
     </div>
     <div id="doc" class="mb-3">
       <label>Description Other Convenience:</label>
       <input formControlName="descriptionOtherConvenience" type="text" class="form-control">
+      <p style="color: red"
+         *ngIf="facilityForm.controls.descriptionOtherConvenience.hasError('required') && facilityForm.controls.descriptionOtherConvenience.touched">
+        *
+        Can't be left
+        blank</p>
     </div>
     <div id="pa" class="mb-3">
       <label>Pool Area: </label>
       <input formControlName="poolArea" type="number" class="form-control">
+      <p style="color: red"
+         *ngIf="facilityForm.controls.poolArea.hasError('required') && facilityForm.controls.poolArea.touched">*
+        Can't be left
+        blank</p>
+      <p style="color: red"
+         *ngIf="facilityForm.controls.poolArea.hasError('min')">* Pool area must be a positive integer
+      </p>
     </div>
     <div id="nof" class="mb-3">
       <label>Number Of Floors: </label>
       <input formControlName="numberOfFloors" class="form-control" type="number">
+      <p style="color: red"
+         *ngIf="facilityForm.controls.numberOfFloors.hasError('required') && facilityForm.controls.numberOfFloors.touched">
+        *
+        Can't be left
+        blank</p>
+      <p style="color: red"
+         *ngIf="facilityForm.controls.numberOfFloors.hasError('min')">* The number of pool floors must be a positive
+        integer
+      </p>
     </div>
     <div id="ff" class="mb-3">
       <label>Facility Free: </label>
       <input formControlName="facilityFree" class="form-control" type="text">
+      <p style="color: red"
+         *ngIf="facilityForm.controls.facilityFree.hasError('required') && facilityForm.controls.facilityFree.touched">
+        *
+        Can't be left
+        blank</p>
     </div>
     <button class="btn btn-primary" type="submit">Create</button>
   </form>

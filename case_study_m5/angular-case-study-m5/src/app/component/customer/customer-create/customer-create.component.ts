@@ -35,11 +35,13 @@ export class CustomerCreateComponent implements OnInit {
   }
 
   createCustomer() {
-    const customer = this.customerForm.value;
-    this.customerForm.value.gender = parseInt(this.customerForm.value.gender);
-    this.customerService.createCustomer(customer).subscribe(next => {
-      alert("Successfully added new");
-      this.router.navigateByUrl("/customer/list")
-    })
+    if (this.customerForm.valid) {
+      const customer = this.customerForm.value;
+      this.customerForm.value.gender = parseInt(this.customerForm.value.gender);
+      this.customerService.createCustomer(customer).subscribe(next => {
+        alert("Successfully added new");
+        this.router.navigateByUrl("/customer/list")
+      })
+    }
   }
 }

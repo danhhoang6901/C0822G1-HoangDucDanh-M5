@@ -111,6 +111,34 @@
         "id": 2,
         "name": "Platinium"
       }
+    },
+    {
+      "id": 5,
+      "name": "Hoang Duc Danh",
+      "dateOfBirth": "2023-02-01",
+      "gender": 0,
+      "idCard": "012345678",
+      "phoneNumber": "0905018234",
+      "email": "danhhoang0196@gmail.com",
+      "address": "Da Nang",
+      "customerType": {
+        "id": 1,
+        "name": "Diamond"
+      }
+    },
+    {
+      "id": 6,
+      "name": "Danh Abc",
+      "dateOfBirth": "2023-02-09",
+      "gender": 0,
+      "idCard": "012345679",
+      "phoneNumber": "0901234567",
+      "email": "abcbacb@gmail.com",
+      "address": "Ha Noi",
+      "customerType": {
+        "id": 3,
+        "name": "Gold"
+      }
     }
   ],
   "customerType": [
