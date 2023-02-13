@@ -1,53 +1,108 @@
 <app-header></app-header>
-<app-navbar></app-navbar>
+<nav class="navbar navbar-expand-lg navbar-light bg-success" style="height: 72px;width: 100%;">
+  <div class="container-fluid" style="margin-left: 40px">
+    <a routerLink="" class="navbar-brand">Home</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdown1" role="button" data-bs-toggle="dropdown"
+             aria-expanded="false">
+            Employee
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
+            <li><a class="dropdown-item">List Employee</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+             data-bs-toggle="dropdown" aria-expanded="false">
+            Customer
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a routerLink="/customer/list" class="dropdown-item">List Customer</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2"
+             role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Facility
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
+            <li><a routerLink="/facility/list" class="dropdown-item">List Facility</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4"
+             role="button"
+             data-bs-toggle="dropdown" aria-expanded="false">
+            Contract
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown4">
+            <li><a routerLink="/contract/list" class="dropdown-item">List Contract</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button style="color: black;background: green" class="btn btn-outline-success" type="submit">
+          Search
+        </button>
+      </ul>
+    </div>
+  </div>
+</nav>
+
 <div style="height: 70%">
   <br>
   <div align="center">
     <h1>Edit Customer</h1>
-    <a role="button" class="btn btn-primary" href="list.html">Back list</a>
+    <a role="button" class="btn btn-primary" routerLink="/customer/list">Back list</a>
   </div>
   <br>
-  <input type="hidden">
-  <div class="mb-3">
-    <label>Name:</label>
-    <input class="form-control" type="text" value="Nguyễn Thị Hào">
-  </div>
-  <div class="mb-3">
-    <label>Date Of Birth:</label>
-    <input class="form-control" type="date" value="1970-11-07">
-  </div>
-  <div class="mb-3">
-    <label>Gender:</label>
-    <input type="radio" value="1">Male
-    <input type="radio" value="2">Female
-    <input type="radio" value="3">LGBT
-  </div>
-  <div class="mb-3">
-    <label>Id Card:</label>
-    <input type="text" class="form-control" value="643431213">
-  </div>
-  <div class="mb-3">
-    <label>Phone number:</label>
-    <input class="form-control" type="text" value="0945423362">
-  </div>
-  <div class="mb-3">
-    <label>Email:</label>
-    <input type="text" class="form-control" value="thihao07@gmail.com">
-  </div>
-  <div class="mb-3">
-    <label>Address:</label>
-    <input type="text" class="form-control" value="23 Nguyễn Hoàng, Đà Nẵng">
-  </div>
-  <div class="mb-3">
-    <label>Customer Type: </label>
-    <select>
-      <option>Member</option>
-      <option>Diamond</option>
-      <option>Platinium</option>
-      <option>Gold</option>
-      <option>Silver</option>
-    </select>
-  </div>
-  <button class="btn btn-primary" type="submit">Save</button>
+  <form [formGroup]="customerForm" (ngSubmit)="updateCustomer(id)">
+    <input formControlName="id" type="hidden">
+    <div class="mb-3">
+      <label>Name:</label>
+      <input class="form-control" type="text" formControlName="name">
+    </div>
+    <div class="mb-3">
+      <label>Date Of Birth:</label>
+      <input class="form-control" type="date" formControlName="dateOfBirth">
+    </div>
+    <div class="mb-3">
+      <label>Gender:</label>
+      <input formControlName="gender" name="gender" type="radio" value="0">Male
+      <input type="radio" value="1" formControlName="gender" name="gender">Female
+      <input type="radio" value="2" formControlName="gender" name="gender">LGBT
+    </div>
+    <div class="mb-3">
+      <label>Id Card:</label>
+      <input type="text" class="form-control" formControlName="idCard">
+    </div>
+    <div class="mb-3">
+      <label>Phone number:</label>
+      <input class="form-control" type="text" formControlName="phoneNumber">
+    </div>
+    <div class="mb-3">
+      <label>Email:</label>
+      <input type="text" class="form-control" formControlName="email">
+    </div>
+    <div class="mb-3">
+      <label>Address:</label>
+      <input type="text" class="form-control" formControlName="address">
+    </div>
+    <div class="mb-3">
+      <label>Customer Type: </label>
+      <select formControlName="customerType" [compareWith]="compareFun">
+        <option *ngFor="let ct of customerType" [ngValue]="ct">{{ct.name}}</option>
+      </select>
+    </div>
+    <button class="btn btn-primary" type="submit">Save</button>
+  </form>
 </div>
 <app-footer></app-footer>

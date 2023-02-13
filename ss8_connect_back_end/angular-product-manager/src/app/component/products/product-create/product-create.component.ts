@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
-import {ProductService} from "../../service/product.service";
+import {ProductService} from "../../../service/product.service";
 import {Router} from "@angular/router";
-import {Category} from "../../model/category";
-import {CategoryService} from "../../service/category.service";
+import {Category} from "../../../model/category";
+import {CategoryService} from "../../../service/category.service";
 
 @Component({
   selector: 'app-product-create',
@@ -13,7 +13,6 @@ import {CategoryService} from "../../service/category.service";
 export class ProductCreateComponent implements OnInit {
   productForm: FormGroup;
   category: Category[] = [];
-  msg = '';
 
   constructor(private productService: ProductService, private router: Router, private categoryService: CategoryService) {
     this.productForm = new FormGroup({

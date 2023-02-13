@@ -1,51 +1,290 @@
 <app-header></app-header>
-<app-navbar></app-navbar>
+<nav class="navbar navbar-expand-lg navbar-light bg-success" style="height: 72px;width: 100%;">
+  <div class="container-fluid" style="margin-left: 40px">
+    <a routerLink="" class="navbar-brand">Home</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdown1" role="button" data-bs-toggle="dropdown"
+             aria-expanded="false">
+            Employee
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
+            <li><a class="dropdown-item">List Employee</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+             data-bs-toggle="dropdown" aria-expanded="false">
+            Customer
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a routerLink="/customer/list" class="dropdown-item">List Customer</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2"
+             role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Facility
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
+            <li><a routerLink="/facility/list" class="dropdown-item">List Facility</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4"
+             role="button"
+             data-bs-toggle="dropdown" aria-expanded="false">
+            Contract
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown4">
+            <li><a routerLink="/contract/list" class="dropdown-item">List Contract</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button style="color: black;background: green" class="btn btn-outline-success" type="submit">
+          Search
+        </button>
+      </ul>
+    </div>
+  </div>
+</nav>
+
 <div style="height: 70%">
-  <div align="center">
-    <h1>Create Customer</h1>
-    <a role="button" class="btn btn-primary" href="list.html">Back list</a>
-  </div>
-  <input type="hidden">
-  <div class="mb-3">
-    <label>Name:</label>
-    <input class="form-control" type="text">
-  </div>
-  <div class="mb-3">
-    <label>Date Of Birth:</label>
-    <input class="form-control" type="date">
-  </div>
-  <div class="mb-3">
-    <label>Gender:</label>
-    <input type="radio" value="0">Female
-    <input type="radio" value="1">Male
-    <input type="radio" value="2">LGBT
-  </div>
-  <div class="mb-3">
-    <label>Id Card:</label>
-    <input type="text" class="form-control">
-  </div>
-  <div class="mb-3">
-    <label>Phone number:</label>
-    <input class="form-control" type="text">
-  </div>
-  <div class="mb-3">
-    <label>Email:</label>
-    <input type="text" class="form-control">
-  </div>
-  <div class="mb-3">
-    <label>Address:</label>
-    <input type="text" class="form-control">
-  </div>
-  <div class="mb-3">
-    <label>Customer Type:</label>
-    <select>
-      <option>Diamond</option>
-      <option>Platinium</option>
-      <option>Gold</option>
-      <option>Silver</option>
-      <option>Member</option>
-    </select>
-  </div>
-  <button class="btn btn-primary" type="submit">Create</button>
+  <div class="container h-100" style="margin-top: 50px">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-12 col-xl-11">
+        <div class="card text-black" style="border-radius: 25px;">
+          <div class="card-body p-md-5">
+            <div class="row justify-content-center">
+              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+                <form [formGroup]="customerForm" (ngSubmit)="createCustomer()">
+                  <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Create Customer</p>
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input formControlName="name" placeholder="Name Customer" type="text" id="form3Example1c"
+                             class="form-control"/>
+                      <p style="color: red"
+                         *ngIf="customerForm.controls.name.hasError('required') && customerForm.controls.name.touched">*
+                        Can't be left
+                        blank</p>
+                      <p style="color: red" *ngIf="customerForm.controls.name.hasError('pattern')">* Names cannot
+                        contain numbers and
+                        every first character is capitalized</p>
+                    </div>
+                  </div>
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fa-solid fas fa-lg me-3 fa-fw  fa-calendar-days"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input formControlName="dateOfBirth" placeholder="Date Of Birth" type="date" id="form3Example3c"
+                             class="form-control"/>
+                      <p style="color: red"
+                         *ngIf="customerForm.controls.dateOfBirth.hasError('required') && customerForm.controls.dateOfBirth.touched">
+                        * Can't be left blank</p>
+                    </div>
+                  </div>
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fa-solid fas fa-lg me-3 fa-fw fa-venus-mars"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <div class="form-check form-check-inline">
+                        <input formControlName="gender" class="form-check-input" type="radio" name="inlineRadioOptions"
+                               id="femaleGender"
+                               value="0" checked/>
+                        <label class="form-check-label" for="femaleGender">Male</label>
+                      </div>
+
+                      <div class="form-check form-check-inline">
+                        <input formControlName="gender" class="form-check-input" type="radio" name="inlineRadioOptions"
+                               id="maleGender"
+                               value="1"/>
+                        <label class="form-check-label" for="maleGender">Female</label>
+                      </div>
+
+                      <div class="form-check form-check-inline">
+                        <input formControlName="gender" class="form-check-input" type="radio" name="inlineRadioOptions"
+                               id="otherGender"
+                               value="3"/>
+                        <label class="form-check-label" for="otherGender">Other</label>
+                      </div>
+                    </div>
+                    <p style="color: red"
+                       *ngIf="customerForm.controls.gender.hasError('required') && customerForm.controls.gender.touched">
+                      * Can't be left blank</p>
+                  </div>
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fa-solid fas fa-lg me-3 fa-fw fa-id-card"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input formControlName="idCard" placeholder="Id Card: 9 numbers or 12 numbers" type="text"
+                             id="form3Example4cd"
+                             class="form-control"/>
+                      <p style="color: red"
+                         *ngIf="customerForm.controls.idCard.hasError('required') && customerForm.controls.idCard.touched">
+                        * Can't be left blank</p>
+                      <p style="color: red" *ngIf="customerForm.controls.idCard.hasError('pattern')">* Id Card must be 9
+                        numbers or 12
+                        numbers
+                      </p>
+                    </div>
+                  </div>
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fa-solid fas fa-lg me-3 fa-fw fa-phone"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input formControlName="phoneNumber" placeholder="090xxxxxxx and must be exactly 10 numbers"
+                             type="text"
+                             class="form-control"/>
+                      <p style="color: red"
+                         *ngIf="customerForm.controls.phoneNumber.hasError('required') && customerForm.controls.phoneNumber.touched">
+                        * Can't be left blank</p>
+                      <p style="color: red" *ngIf="customerForm.controls.phoneNumber.hasError('pattern')">* Phone number
+                        must be exactly
+                        10 numbers and must be in the correct format
+                      </p>
+                    </div>
+                  </div>
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fa-solid fas fa-lg me-3 fa-fw fa-envelope"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input formControlName="email" placeholder="Email: AbCeabc1233@gmail.com"
+                             type="text"
+                             class="form-control"/>
+                      <p style="color: red"
+                         *ngIf="customerForm.controls.email.hasError('required') && customerForm.controls.email.touched">
+                        * Can't be left blank</p>
+                      <p style="color: red" *ngIf="customerForm.controls.email.hasError('pattern')">* Email must be in
+                        the correct
+                      </p>
+                    </div>
+                  </div>
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fa-solid fas fa-lg me-3 fa-fw fa-location-dot"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input formControlName="address" placeholder="Address"
+                             type="text"
+                             class="form-control"/>
+                      <p style="color: red"
+                         *ngIf="customerForm.controls.address.hasError('required') && customerForm.controls.address.touched">
+                        * Can't be left
+                        blank</p>
+                    </div>
+                  </div>
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fa-solid fas fa-lg me-3 fa-fw fa-person"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <select formControlName="customerType" class="form-control">
+                        <option *ngFor="let ct of customerType" [ngValue]="ct">{{ct.name}}</option>
+                      </select>
+                      <p style="color: red"
+                         *ngIf="customerForm.controls.customerType.hasError('required') && customerForm.controls.customerType.touched">
+                        * Can't be left
+                        blank</p>
+                    </div>
+                  </div>
+
+                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                    <button type="submit" class="btn btn-primary btn-lg">Create</button>
+                  </div>
+                </form>
+              </div>
+              <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+                     class="img-fluid" alt="Sample image">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!--  <form [formGroup]="customerForm" (ngSubmit)="createCustomer()">-->
+  <!--    <div class="mb-3">-->
+  <!--      <label>Name:</label>-->
+  <!--      <input formControlName="name" class="form-control" type="text">-->
+  <!--      <p style="color: red"-->
+  <!--         *ngIf="customerForm.controls.name.hasError('required') && customerForm.controls.name.touched">* Can't be left-->
+  <!--        blank</p>-->
+  <!--      <p style="color: red" *ngIf="customerForm.controls.name.hasError('pattern')">* Names cannot contain numbers and-->
+  <!--        every first character is capitalized</p>-->
+  <!--    </div>-->
+  <!--    <div class="mb-3">-->
+  <!--      <label>Date Of Birth:</label>-->
+  <!--      <input formControlName="dateOfBirth" class="form-control" type="date">-->
+  <!--      <p style="color: red"-->
+  <!--         *ngIf="customerForm.controls.dateOfBirth.hasError('required') && customerForm.controls.dateOfBirth.touched">-->
+  <!--        * Can't be left blank</p>-->
+  <!--    </div>-->
+  <!--    <div class="mb-3">-->
+  <!--      <label>Gender:</label>-->
+  <!--      <input style="margin-left: 10px" formControlName="gender" id="male" name="gender" type="radio" value="0"-->
+  <!--             checked="checked"><label for="male">Male</label><br>-->
+  <!--      <input style="margin-left: 64px" formControlName="gender" id="female" name="gender" type="radio" value="1"><label-->
+  <!--      for="female">Female</label><br>-->
+  <!--      <input style="margin-left: 64px" formControlName="gender" id="lgbt" name="gender" type="radio" value="2"><label-->
+  <!--      for="lgbt">LGBT</label>-->
+  <!--      <p style="color: red"-->
+  <!--         *ngIf="customerForm.controls.gender.hasError('required') && customerForm.controls.gender.touched">-->
+  <!--        * Can't be left blank</p>-->
+  <!--    </div>-->
+  <!--    <div class="mb-3">-->
+  <!--      <label>Id Card:</label>-->
+  <!--      <input placeholder="9 numbers or 12 numbers-->
+  <!--" formControlName="idCard" type="text" class="form-control">-->
+  <!--      <p style="color: red"-->
+  <!--         *ngIf="customerForm.controls.idCard.hasError('required') && customerForm.controls.idCard.touched">* Can't be-->
+  <!--        left-->
+  <!--        blank</p>-->
+  <!--      <p style="color: red" *ngIf="customerForm.controls.idCard.hasError('pattern')">* Id Card must be 9 numbers or 12-->
+  <!--        numbers-->
+  <!--      </p>-->
+  <!--    </div>-->
+  <!--    <div class="mb-3">-->
+  <!--      <label>Phone number:</label>-->
+  <!--      <input placeholder="Ex: 090xxxxxxx and phone number must be exactly 10 numbers-->
+  <!--" class="form-control" formControlName="phoneNumber" type="text">-->
+  <!--      <p style="color: red"-->
+  <!--         *ngIf="customerForm.controls.phoneNumber.hasError('required') && customerForm.controls.phoneNumber.touched">-->
+  <!--        * Can't be left-->
+  <!--        blank</p>-->
+  <!--      <p style="color: red" *ngIf="customerForm.controls.phoneNumber.hasError('pattern')">* Phone number must be exactly-->
+  <!--        10 numbers and must be in the correct format-->
+  <!--      </p>-->
+  <!--    </div>-->
+  <!--    <div class="mb-3">-->
+  <!--      <label>Email:</label>-->
+  <!--      <input placeholder="Ex: AbCeabc1233@gmail.com" formControlName="email" type="text" class="form-control">-->
+  <!--      <p style="color: red"-->
+  <!--         *ngIf="customerForm.controls.email.hasError('required') && customerForm.controls.email.touched">-->
+  <!--        * Can't be left-->
+  <!--        blank</p>-->
+  <!--      <p style="color: red" *ngIf="customerForm.controls.email.hasError('pattern')">* Email must be in the correct-->
+  <!--        format-->
+  <!--      </p>-->
+  <!--    </div>-->
+  <!--    <div class="mb-3">-->
+  <!--      <label>Address:</label>-->
+  <!--      <input formControlName="address" type="text" class="form-control">-->
+  <!--      <p style="color: red"-->
+  <!--         *ngIf="customerForm.controls.address.hasError('required') && customerForm.controls.address.touched">-->
+  <!--        * Can't be left-->
+  <!--        blank</p>-->
+  <!--    </div>-->
+  <!--    <div class="mb-3">-->
+  <!--      <label>Customer Type:</label>-->
+  <!--      <select formControlName="customerType">-->
+  <!--        <option *ngFor="let ct of customerType" [ngValue]="ct">{{ct.name}}</option>-->
+  <!--      </select>-->
+  <!--      <p style="color: red"-->
+  <!--         *ngIf="customerForm.controls.customerType.hasError('required') && customerForm.controls.customerType.touched">-->
+  <!--        * Can't be left-->
+  <!--        blank</p>-->
+  <!--    </div>-->
+  <!--    <button class="btn btn-primary" type="submit">Create</button>-->
+  <!--  </form>-->
 </div>
 <app-footer></app-footer>

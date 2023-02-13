@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {ProductService} from "../../service/product.service";
-import {Product} from "../../model/product";
-import {Category} from "../../model/category";
-import {CategoryService} from "../../service/category.service";
+import {ProductService} from "../../../service/product.service";
+import {Product} from "../../../model/product";
+import {Category} from "../../../model/category";
+import {CategoryService} from "../../../service/category.service";
 
 @Component({
   selector: 'app-product',
@@ -26,7 +26,7 @@ export class ProductComponent implements OnInit {
   ngOnInit(): void {
     this.productService.getAll().subscribe(next => {
       this.products = next;
-    })
+    });
   }
 
   deleteProduct(id: number) {

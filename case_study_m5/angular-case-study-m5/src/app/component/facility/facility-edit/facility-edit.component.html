@@ -1,15 +1,72 @@
 <app-header></app-header>
-<app-navbar></app-navbar>
+<nav class="navbar navbar-expand-lg navbar-light bg-success" style="height: 72px;width: 100%;">
+  <div class="container-fluid" style="margin-left: 40px">
+    <a routerLink="" class="navbar-brand">Home</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdown1" role="button" data-bs-toggle="dropdown"
+             aria-expanded="false">
+            Employee
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
+            <li><a class="dropdown-item">List Employee</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+             data-bs-toggle="dropdown" aria-expanded="false">
+            Customer
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a routerLink="/customer/list" class="dropdown-item">List Customer</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2"
+             role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Facility
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
+            <li><a routerLink="/facility/list" class="dropdown-item">List Facility</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4"
+             role="button"
+             data-bs-toggle="dropdown" aria-expanded="false">
+            Contract
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown4">
+            <li><a routerLink="/contract/list" class="dropdown-item">List Contract</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button style="color: black;background: green" class="btn btn-outline-success" type="submit">
+          Search
+        </button>
+      </ul>
+    </div>
+  </div>
+</nav>
+
 <div style="height: 70%">
   <div align="center">
     <h1>Edit Facility</h1>
     <a routerLink="/facility/list" role="button" class="btn btn-primary">Back list</a>
-    <p style="color: red">{{msg}}</p>
   </div>
   <form [formGroup]="facilityForm" (ngSubmit)="updateFacility(id)">
     <div class="mb-3">
       <input class="form-control" type="hidden" formControlName="id">
-    </div><div class="mb-3">
+    </div>
+    <div class="mb-3">
       <label>Name:</label>
       <input class="form-control" type="text" formControlName="name">
     </div>
@@ -27,11 +84,8 @@
     </div>
     <div class="mb-3">
       <label>Rent Type:</label>
-      <select formControlName="rentType">
-        <option value="1"></option>
-        <option value="2">Month</option>
-        <option value="3">Day</option>
-        <option value="4">Hour</option>
+      <select formControlName="rentType" [compareWith]="compareFun">
+        <option *ngFor="let rt of rentType" [ngValue]="rt">{{rt.name}}</option>
       </select>
     </div>
     <div class="mb-3">

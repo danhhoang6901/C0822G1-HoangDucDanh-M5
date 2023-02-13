@@ -1,0 +1,169 @@
+{
+  "facility": [
+    {
+      "id": 2,
+      "name": "House Princess 01",
+      "area": 14000,
+      "cost": 5000000,
+      "maxPeople": 7,
+      "standardRoom": "vip",
+      "descriptionOtherConvenience": "Có thêm bếp nướng",
+      "numberOfFloors": 3,
+      "facilityType": {
+        "id": 2,
+        "name": "House"
+      },
+      "rentType": {
+        "id": 2,
+        "name": "Month"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Villa Princess 01",
+      "area": 14000,
+      "cost": 5000000,
+      "maxPeople": 7,
+      "standardRoom": "vip",
+      "descriptionOtherConvenience": "Có thêm bếp nướng",
+      "numberOfFloors": 3,
+      "facilityType": {
+        "id": 1,
+        "name": "Villa"
+      },
+      "rentType": {
+        "id": 2,
+        "name": "Month"
+      }
+    }
+  ],
+  "facilityType": [
+    {
+      "id": 1,
+      "name": "Villa"
+    },
+    {
+      "id": 2,
+      "name": "House"
+    },
+    {
+      "id": 3,
+      "name": "Room"
+    }
+  ],
+  "rentType": [
+    {
+      "id": 1,
+      "name": "Year"
+    },
+    {
+      "id": 2,
+      "name": "Month"
+    },
+    {
+      "id": 3,
+      "name": "Day"
+    },
+    {
+      "id": 4,
+      "name": "Hour"
+    }
+  ],
+  "customer": [
+    {
+      "id": 2,
+      "name": "Phạm Xuân Diệu",
+      "dateOfBirth": "1992-08-08",
+      "gender": 1,
+      "idCard": "865342123",
+      "phoneNumber": "0954333333",
+      "email": "xuandieu92@gmail.com",
+      "address": "K77/22 Thái Phiên, Quảng Trị",
+      "customerType": {
+        "id": 3,
+        "name": "Gold"
+      }
+    },
+    {
+      "id": 3,
+      "name": "sgfgdfgdfgdg",
+      "dateOfBirth": "2023-02-16",
+      "gender": "0",
+      "idCard": "516464",
+      "phoneNumber": "654564564",
+      "email": "sdfgsfgdsq",
+      "address": "sdfgsfds",
+      "customerType": {
+        "id": 1,
+        "name": "Diamond"
+      }
+    },
+    {
+      "id": 4,
+      "name": "Danh123",
+      "dateOfBirth": "2023-03-02",
+      "gender": 0,
+      "idCard": "54564564",
+      "phoneNumber": "6465465",
+      "email": "sdfsdfsdf",
+      "address": "sdfsfdsf",
+      "customerType": {
+        "id": 2,
+        "name": "Platinium"
+      }
+    }
+  ],
+  "customerType": [
+    {
+      "id": 1,
+      "name": "Diamond"
+    },
+    {
+      "id": 2,
+      "name": "Platinium"
+    },
+    {
+      "id": 3,
+      "name": "Gold"
+    },
+    {
+      "id": 4,
+      "name": "Silver"
+    },
+    {
+      "id": 5,
+      "name": "Member"
+    }
+  ],
+  "contract": [
+    {
+      "id": 1,
+      "startDate": "2020-12-08",
+      "endDate": "2020-12-08",
+      "totalMoney": 10000000,
+      "customer": {
+        "id": 1,
+        "name": "Nguyễn Thị Hào"
+      },
+      "facility": {
+        "id": 3,
+        "name": "Room Twin 01"
+      }
+    },
+    {
+      "id": 2,
+      "startDate": "2020-07-14",
+      "endDate": "2020-07-21",
+      "deposit": 200000,
+      "totalMoney": 20000000,
+      "customer": {
+        "id": 3,
+        "name": "Trương Đình Nghệ"
+      },
+      "facility": {
+        "id": 1,
+        "name": "Villa Beach Front"
+      }
+    }
+  ]
+}
